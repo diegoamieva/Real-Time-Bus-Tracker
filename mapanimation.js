@@ -1,5 +1,5 @@
 var busMarkers = [];
-const colorMarkers = ['#3498DB ','#27AE60'];
+const colorMarkers = ['#3498DB','#27AE60'];
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGllZ29hOTciLCJhIjoiY2w2bzB6MXF3MDZhNDNkcjMxcjk2dGZneCJ9.mrAq1uWFk0xERPcLcFBzAA';
   
@@ -15,11 +15,14 @@ let map = new mapboxgl.Map({
 async function run(){
     // get bus data    
 	const locations = await getBusLocations();
-    locations.forEach((bus,i) => {
-        var marker = new mapboxgl.Marker()
+    locations.forEach((bus) => {
+        var marker = new mapboxgl.Marker({
+            color: colorMarkers[bus.attributes.direction_id]
+        })
         .setLngLat([bus.attributes.longitude, bus.attributes.latitude])
-        .setPopup(new mapboxgl.Popup({offset: 25, closeOnClick: false, closeButton: false}).setHTML(`<h3>Bus ID <br>
-		${bus.attributes.label}</h3>`))
+        .setPopup(new mapboxgl.Popup({offset: 25, closeOnClick: false, closeButton: false}).setHTML(
+        `<h3>Bus ID <br> ${bus.attributes.label}</h3>` 
+        ))
         .addTo(map)
         
         busMarkers.push(marker)
