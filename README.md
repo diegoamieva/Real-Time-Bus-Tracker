@@ -46,7 +46,7 @@
 
 ## :dart: About ##
 
-This repository contains the exercise of week 9 of MITxPRO Professional Certificate in Programming: Full-Stack Development with MERN.
+This repository contains the exercise of week 9 of MITxPRO Professional Certificate in Programming: Full-Stack Development with MERN. Retrive data from Real Time Bus Tracker MBTA API, and display in the map the current location of each bus of the route.
 
 ## :sparkles: Roadmap ##
 
